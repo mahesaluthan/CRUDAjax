@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CRUDAjax.Person>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contoso University</h2>
+
+<div class="container">
+    <h2>Person</h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Add New Person</button><br /><br />
+    <div id="alert"></div>
+    <table class="table table-hover" id="data">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Hire Date
+                </th>
+                <th>
+                    Enrollment Date
+                </th>
+                <th>
+                    Discriminator
+                </th>
+                <th>
+                    Action
+                </th>
+
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Person</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="ID">ID</label>
+                        <input type="text" class="form-control" id="ID" placeholder="Id" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="LastName">Last Name</label>
+                        <input type="text" class="form-control" id="LastName" placeholder="Last Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="FirstName">First Name</label>
+                        <input type="text" class="form-control" id="FirstName" placeholder="First Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Discriminator">Discriminator</label>
+                        <select type="text"  class="form-control" id="Discriminator" placeholder="Discriminator">
+                            <option>Student</option>
+                            <option>Instructor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="HireDate">Hire Date</label>
+                        <input type="text" class="form-control datepicker" id="HireDate" placeholder="Hire Date" />
+                    </div>
+                    <div class="form-group">
+                        <label for="EnrollmentDate">Enrollment Date</label>
+                        <input type="text" class="form-control datepicker" id="EnrollmentDate" placeholder="Enrollment Date" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ondb class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+ </div>
+
